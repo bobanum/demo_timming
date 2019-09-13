@@ -3,11 +3,11 @@
  * @module Incline
  */
 export default class Incline {
-	constructor(x,y) {
+	constructor(x, y, largeur=1, type=0) {
 		this.x = x;
 		this.y = y;
-		this.type = 0;
-		this.largeur = 2;
+		this.type = type;
+		this.largeur = largeur;
 	}
 	/**
 	 * Méthode principale. Sera typiquement appelée après le chargement de la page.

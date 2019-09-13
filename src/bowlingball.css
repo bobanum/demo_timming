@@ -1,0 +1,28 @@
+.bowlingball {
+	--largeur: 34px;
+	--hauteur: 34px;
+	--steps: 8;
+	position: absolute;
+	width: var(--largeur);
+	height: var(--hauteur);
+	background-image: url(../medias/bowlingball.png);
+	background-repeat: no-repeat;
+	background-position-x: 0px;
+	background-position-y: 0px;
+}
+.bowlingball {
+	animation-name: bowlingball-roll;
+	animation-duration: 1000ms;
+	/* animation-direction: reverse; */
+	animation-timing-function: steps(var(--steps));
+	animation-iteration-count: infinite;
+}
+@keyframes bowlingball-roll {
+	0% {
+		background-position-x: 0px;
+	}
+	100% {
+		background-position-x: calc(-1 * var(--largeur) * var(--steps))
+	}
+
+}
