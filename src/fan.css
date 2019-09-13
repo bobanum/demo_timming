@@ -1,0 +1,27 @@
+.fan {
+	--largeur: 30px;
+	--hauteur: 48px;
+	--steps: 8;
+	position: absolute;
+	width: var(--largeur);
+	height: var(--hauteur);
+	background-image: url(../medias/fan.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+.fan {
+	animation-name: fan-action;
+	animation-duration: 2s;
+	animation-timing-function: steps(var(--steps));
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+@keyframes fan-action {
+	0% {
+		background-position-x: 0px;
+	}
+	100% {
+		background-position-x: calc(-1 * var(--largeur) * var(--steps))
+	}
+
+}

@@ -1,0 +1,29 @@
+.aladdinslamp {
+	--largeur: 58px;
+	--hauteur: 51px;
+	--steps: 5;
+	position: absolute;
+	width: var(--largeur);
+	height: var(--hauteur);
+	background-image: url(../medias/aladdinslamp.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+.aladdinslamp {
+	/* animation-name: aladdinslamp-action; */
+	animation-duration: 1s;
+	animation-timing-function: steps(var(--steps));
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+@keyframes aladdinslamp-action {
+	0% {
+		background-position-y: calc(-1 * var(--hauteur));
+		background-position-x: 0px;
+	}
+	100% {
+		background-position-y: calc(-1 * var(--hauteur));
+		background-position-x: calc(-1 * var(--largeur) * var(--steps))
+	}
+
+}

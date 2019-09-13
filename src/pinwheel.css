@@ -1,0 +1,28 @@
+.pinwheel {
+	--largeur: 53px;
+	--hauteur: 57px;
+	--steps: 10;
+	--taille: 1;
+	position: absolute;
+	width: calc(var(--taille) * var(--largeur));
+	height: calc(var(--taille) * var(--hauteur));
+	background-image: url(../medias/pinwheel.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: calc(var(--taille) * var(--steps) * var(--largeur)) calc(var(--taille) * var(--hauteur));
+}
+.pinwheel {
+	animation-name: pinwheel-action;
+	animation-duration: 700ms;
+	animation-timing-function: steps(var(--steps));
+	animation-iteration-count: infinite;
+}
+@keyframes pinwheel-action {
+	0% {
+		background-position-x: 0px;
+	}
+	100% {
+		background-position-x: calc(-1 * var(--taille) * var(--largeur) * var(--steps))
+	}
+
+}
