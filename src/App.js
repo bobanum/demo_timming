@@ -3,6 +3,7 @@
 import Fan from "./Fan.js";
 import Aladdinslamp from "./Aladdinslamp.js";
 import Pinwheel from "./Pinwheel.js";
+import Incline from "./Incline.js";
 /**
  * @module App
  */
@@ -12,15 +13,14 @@ export default class App {
 	 */
 	static main() {
 		var app = document.getElementById("app");
-		Fan.main();
 		var fan = new Fan(200, 60);
 		app.appendChild(fan.creerSprite());
-		Aladdinslamp.main();
 		var aladdinslamp = new Aladdinslamp(20, 20);
 		app.appendChild(aladdinslamp.creerSprite());
-		Pinwheel.main();
 		var pinwheel = new Pinwheel(100, 200);
 		app.appendChild(pinwheel.creerSprite());
+		var incline = new Incline(300, 200);
+		app.appendChild(incline.creerSprite());
 	}
 	/**
 	 * Méthode qui permet d'attendre le chargement de la page avant d'éxécuter le script principal

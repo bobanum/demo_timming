@@ -1,0 +1,33 @@
+.incline {
+	--largeur: 1;
+	--unite-largeur: 16px;
+	--hauteur: 32px;
+	--type: 0;
+	position: absolute;
+	width: calc(var(--unite-largeur) * var(--largeur));
+	height: var(--hauteur);
+	background-image: url(../medias/inclines.png);
+	background-repeat: no-repeat;
+	background-position-x: calc(-1 * var(--unite-largeur) * var(--largeur) * (var(--largeur) - 1) / 2);
+	background-position-y: calc(-1 * var(--type) * var(--hauteur));
+}
+.incline:focus {
+	/* box-shadow: 0 0 5px yellow; */
+	outline: none;
+	animation-name: incline-glow;
+	animation-direction: alternate-reverse;
+	animation-duration: 400ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in;
+	/* background-color: yellow; */
+}
+@keyframes incline-glow {
+	0% {
+		box-shadow: 0 0 2px blue;
+
+	}
+	100% {
+		box-shadow: 0 0 10px blue;
+
+	}
+}

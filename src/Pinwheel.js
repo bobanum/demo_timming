@@ -27,7 +27,9 @@ export default class Pinwheel {
 		this.sprite = resultat;
 
 		window.addEventListener("keypress", e => {
-			this.toggle();
+			if (e.code === "Space") {
+				this.toggle();
+			}
 		});
 
 		return resultat;
