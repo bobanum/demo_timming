@@ -1,11 +1,12 @@
 /*jslint esnext:true, browser:true*/
 /**
- * @module Bowlingball
+ * @module Poolball
  */
-export default class Bowlingball {
-	constructor(x,y) {
+export default class Poolball {
+	constructor(x, y, no=0) {
 		this.x = x;
 		this.y = y;
+		this.no = no;
 	}
 	/**
 	 * Méthode principale. Sera typiquement appelée après le chargement de la page.
@@ -15,23 +16,17 @@ export default class Bowlingball {
 	static ajouterStyle() {
 		var link = document.head.appendChild(document.createElement("link"));
 		link.setAttribute("rel", "stylesheet");
-		link.setAttribute("href", "./src/bowlingball.css");
+		link.setAttribute("href", "./src/poolball.css");
 	}
 	creerSprite() {
 		var resultat = document.createElement("div");
 		resultat.classList.add("sprite");
-		resultat.classList.add("bowlingball");
+		resultat.classList.add("poolball");
+		resultat.classList.add("no" + this.no);
 		resultat.style.left = this.x + "px";
 		resultat.style.top = this.y + "px";
 		resultat.obj = this;
 		this.sprite = resultat;
-
-		window.addEventListener("keypress", e => {
-			if (e.code === "Space") {
-				this.toggle();
-			}
-		});
-
 		return resultat;
 	}
 	tomber(x, y, dur) {
@@ -48,7 +43,7 @@ export default class Bowlingball {
 		window.setTimeout(() => {
 			this.sprite.style.left = this.x + "px";
 			this.sprite.style.top = this.y + "px";
-		}, 10);
+		}, 100);
 		var me;
 		this.sprite.addEventListener("transitionend", me = e => {
 			e.stopImmediatePropagation();
@@ -72,7 +67,7 @@ export default class Bowlingball {
 		window.setTimeout(() => {
 			this.sprite.style.left = this.x + "px";
 			this.sprite.style.top = this.y + "px";
-		}, 10);
+		}, 100);
 		var me;
 		this.sprite.addEventListener("transitionend", me = e => {
 			e.stopImmediatePropagation();
@@ -83,25 +78,8 @@ export default class Bowlingball {
 			sprite.style.removeProperty("transitionTimingFunction");
 		});
 	}
-	arreter() {
-		this.sprite.style.animationPlayState = "paused";
-	}
-	demarrer() {
-		this.sprite.style.animationPlayState = "running";
-	}
-	fonctionne() {
-		return this.sprite.style.animationPlayState !== "paused";
-	}
-	toggle() {
-		if (this.fonctionne()) {
-			this.arreter();
-		} else {
-			this.demarrer();
-		}
-	}
-
 	static init() {
 		this.ajouterStyle();
 	}
 }
-Bowlingball.init();
+Poolball.init();

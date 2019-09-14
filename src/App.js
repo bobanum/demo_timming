@@ -5,6 +5,8 @@ import Aladdinslamp from "./Aladdinslamp.js";
 import Pinwheel from "./Pinwheel.js";
 import Incline from "./Incline.js";
 import Bowlingball from "./Bowlingball.js";
+import Flashlight from "./Flashlight.js";
+import Poolball from "./Poolball.js";
 /**
  * @module App
  */
@@ -24,20 +26,17 @@ export default class App {
 		app.appendChild(incline.creerSprite());
 		var bowlingball = new Bowlingball(490, -33);
 		app.appendChild(bowlingball.creerSprite());
-		console.log("appel tomber");
 		bowlingball.tomber(290,168);
 		var me;
 		bowlingball.sprite.addEventListener("transitionend", me = e => {
 			e.stopImmediatePropagation();
 			e.currentTarget.removeEventListener("transitionend", me);
-			console.log("appel rouler");
 			e.currentTarget.obj.rouler(347,183, 1000);
 			var me2;
 			bowlingball.sprite.addEventListener("transitionend", me2 = e => {
 				e.stopImmediatePropagation();
 				e.currentTarget.removeEventListener("transitionend", me2);
-				console.log("appel tomber");
-				e.currentTarget.obj.tomber(447, 300, 1500);
+				e.currentTarget.obj.tomber(447, 300);
 				var me3;
 				bowlingball.sprite.addEventListener("transitionend", me3 = e => {
 					e.stopImmediatePropagation();
@@ -46,6 +45,35 @@ export default class App {
 				});
 			});
 		});
+		var flashlight = new Flashlight(190, 200);
+		app.appendChild(flashlight.creerSprite());
+		var ajouterBalle = () => {
+			var poolball = new Poolball(400, 0, this.alea(15));
+			app.appendChild(poolball.creerSprite());
+			poolball.tomber(this.alea(800,0),this.alea(600,100));
+			// poolball.sprite.addEventListener("transitionend", e => {
+			// 	e.currentTarget.obj.detruire();
+			// });
+			window.setTimeout(() => {
+				poolball.detruire();
+			}, this.alea(5000,1000));
+		};
+		var int_balles = window.setInterval(() => {
+			window.setTimeout(() => {
+				ajouterBalle();
+			}, this.alea(4000, 2000));
+		}, 10);
+		window.setTimeout(() => {
+			window.clearInterval(int_balles);
+			// console.log("fini");
+		}, this.alea(10000));
+	}
+	static alea(max, min = 0, precision = 0) {
+		var resultat = Math.random() * (max - min + 1);
+		precision = Math.pow(10, precision);
+		resultat = Math.floor(resultat * precision) / precision;
+		resultat += min;
+		return resultat;
 	}
 	/**
 	 * Méthode qui permet d'attendre le chargement de la page avant d'éxécuter le script principal

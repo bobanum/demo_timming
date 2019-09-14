@@ -1,0 +1,80 @@
+.poolball {
+	--largeur: 25px;
+	--hauteur: 25px;
+	--steps: 8;
+	position: absolute;
+	width: var(--largeur);
+	height: var(--hauteur);
+	background-image: url(../medias/poolballs.png);
+	background-repeat: no-repeat;
+	background-position-x: 0px;
+	background-position-y: 0px;
+}
+/* Rangée 0*/
+.poolball.no0 {
+	background-position-x: calc(-0 * var(--largeur));
+	background-position-y: calc(-0 * var(--hauteur));
+}
+.poolball.no1 {
+	background-position-x: calc(-1 * var(--largeur));
+	background-position-y: calc(-0 * var(--hauteur));
+}
+.poolball.no2 {
+	background-position-x: calc(-2 * var(--largeur));
+	background-position-y: calc(-0 * var(--hauteur));
+}
+.poolball.no3 {
+	background-position-x: calc(-3 * var(--largeur));
+	background-position-y: calc(-0 * var(--hauteur));
+}
+/* Rangee 1*/
+.poolball.no4 {
+	background-position-x: calc(-0 * var(--largeur));
+	background-position-y: calc(-1 * var(--hauteur));
+}
+.poolball.no5 {
+	background-position-x: calc(-1 * var(--largeur));
+	background-position-y: calc(-1 * var(--hauteur));
+}
+.poolball.no6 {
+	background-position-x: calc(-2 * var(--largeur));
+	background-position-y: calc(-1 * var(--hauteur));
+}
+.poolball.no7 {
+	background-position-x: calc(-3 * var(--largeur));
+	background-position-y: calc(-1 * var(--hauteur));
+}
+/* Rangee 2*/
+.poolball.no8 {
+	background-position-x: calc(-0 * var(--largeur));
+	background-position-y: calc(-2 * var(--hauteur));
+}
+.poolball.no9 {
+	background-position-x: calc(-1 * var(--largeur));
+	background-position-y: calc(-2 * var(--hauteur));
+}
+.poolball.no10 {
+	background-position-x: calc(-2 * var(--largeur));
+	background-position-y: calc(-2 * var(--hauteur));
+}
+.poolball.no11 {
+	background-position-x: calc(-3 * var(--largeur));
+	background-position-y: calc(-2 * var(--hauteur));
+}
+/* Rangée 3 */
+.poolball.no12 {
+	background-position-x: calc(-0 * var(--largeur));
+	background-position-y: calc(-3 * var(--hauteur));
+}
+.poolball.no13 {
+	background-position-x: calc(-1 * var(--largeur));
+	background-position-y: calc(-3 * var(--hauteur));
+}
+.poolball.no14 {
+	background-position-x: calc(-2 * var(--largeur));
+	background-position-y: calc(-3 * var(--hauteur));
+}
+.poolball.no15 {
+	background-position-x: calc(-3 * var(--largeur));
+	background-position-y: calc(-3 * var(--hauteur));
+}

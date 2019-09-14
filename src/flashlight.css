@@ -1,0 +1,15 @@
+.flashlight {
+	--largeur: 48px;
+	--hauteur: 23px;
+	--steps: 10;
+	--taille: 1;
+	position: absolute;
+	width: calc(var(--taille) * var(--largeur));
+	height: calc(var(--taille) * var(--hauteur));
+	background-image: url(../medias/flashlight.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+.flashlight.on {
+	background-position-y: calc(-1 * var(--hauteur));
+}
